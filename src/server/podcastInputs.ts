@@ -62,6 +62,15 @@ export const podcasts: PodcastInput[] = [
     Tristan: Super danke lena, verabschiedung...
     `,
   },
+  {
+    id: 'ananas-auf-pizza',
+    episodeNumber: 3,
+    language: 'de',
+    title: 'Ananas auf Pizza: Ein Verbrechen oder eine Delikatesse?',
+    date: '2024-02-03',
+    hosts,
+    roughPlan: `Eines der umstrittensten Themen seit... Warum hassen oder lieben es so viele? Tristan wird sich sehr dafür aussprechen das in einer liberalen Gesellschaft jeder mal schön essen kann was er will. Gegen Ende wird Tristan sagen: Jetzt hab ich sogar gehört Ananas auf Pizza soll Krebs verursachen. Die Ananas Gegener kämpfen ja wirklich mit harten Bandagen. Lena wird alles wie immer aufklären. Am Ende kommt wie immer das heitere Fazit und Outro von Tristan.`,
+  },
 ]
 
 export const getPodcastInputs = async () => {
