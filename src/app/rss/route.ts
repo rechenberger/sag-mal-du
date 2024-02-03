@@ -1,5 +1,11 @@
 import { getPodcasts } from '@/server/podcasts'
 import { Feed } from 'feed'
+import * as mm from 'music-metadata'
+
+const getMP3Duration = async (filePath: string) => {
+  const metadata = await mm.parseFile(filePath)
+  return metadata.format.duration
+}
 
 export const GET = async () => {
   const feed = new Feed({
@@ -23,6 +29,8 @@ export const GET = async () => {
   const podcasts = await getPodcasts()
 
   for (const podcast of podcasts) {
+    const duration = await getMP3Duration(`public/audio/${podcast.id}.mp3`)
+    console.log('duration', duration)
     feed.addItem({
       title: podcast.title,
       id: `https://sag-mal-du.rechenberger.io/podcasts/${podcast.id}`,
@@ -38,6 +46,7 @@ export const GET = async () => {
       audio: {
         url: `https://sag-mal-du.rechenberger.io/audio/${podcast.id}.mp3`,
         type: 'audio/mpeg',
+        length: duration ? Math.ceil(duration) : undefined,
       },
     })
   }
