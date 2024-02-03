@@ -4,8 +4,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Teampilot Starter',
-  description: 'powered by teampilot.ai',
+  title: {
+    default: 'Sag mal du als KI',
+    template: '%s | Sag mal du als KI',
+  },
+  description: 'Ein KI-generierter Podcast powered by teampilot.ai',
 }
 
 export default function RootLayout({
