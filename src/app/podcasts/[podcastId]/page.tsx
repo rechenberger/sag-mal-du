@@ -16,6 +16,12 @@ export const generateMetadata = async (
   if (!podcast) return notFound()
   return {
     title: podcast.title,
+    openGraph: {
+      type: 'article',
+      images: podcast.imageUrl ? [{ url: podcast.imageUrl }] : [],
+      title: podcast.title,
+      description: podcast.description,
+    },
   }
 }
 
