@@ -30,7 +30,6 @@ export const GET = async () => {
 
   for (const podcast of podcasts) {
     const duration = await getMP3Duration(`public/audio/${podcast.id}.mp3`)
-    console.log('duration', duration)
     feed.addItem({
       title: podcast.title,
       id: `https://sag-mal-du.rechenberger.io/podcasts/${podcast.id}`,
