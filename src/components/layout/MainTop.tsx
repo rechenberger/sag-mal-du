@@ -18,7 +18,7 @@ export const MainTop = () => {
           <MainTopNav />
         </div> */}
         <div className="flex flex-row">
-          <Link href="/rss">
+          <Link href="/rss" title="RSS-Feed">
             <Button variant={'ghost'} size="icon">
               <Rss />
             </Button>
