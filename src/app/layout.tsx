@@ -19,7 +19,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <MainTop />
           <hr />
-          <div className="container flex flex-col gap-8 py-8 flex-1">
+          <div className="container lg:max-w-[1024px] xl:max-w-[1024px] 2xl:max-w-[1024px] flex flex-col gap-8 py-8 flex-1">
             {children}
           </div>
         </ThemeProvider>
