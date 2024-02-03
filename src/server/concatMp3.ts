@@ -6,7 +6,7 @@ export async function concatMp3({
 }: {
   inputFiles: string[]
   outputFile: string
-}): Promise<void> {
+}) {
   const transloadit = new Transloadit({
     authKey: process.env.TRANSLOADIT_AUTH_KEY!,
     authSecret: process.env.TRANSLOADIT_AUTH_SECRET!,
@@ -26,9 +26,18 @@ export async function concatMp3({
   }
 
   // Execute
-  const result = await transloadit.createAssembly(options)
+  const assemblyCreated = await transloadit.createAssembly(options)
+  const assemblyDone = await transloadit.awaitAssemblyCompletion(
+    assemblyCreated.assembly_id,
+    {},
+  )
 
-  console.log(result)
+  const url = assemblyDone.results['concatenated-audio'][0].ssl_url as
+    | string
+    | undefined
+  if (!url) {
+    throw new Error('No url found')
+  }
+
+  return { url }
 }
-
-// Example usage

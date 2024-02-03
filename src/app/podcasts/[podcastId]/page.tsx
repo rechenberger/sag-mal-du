@@ -1,4 +1,5 @@
 import { LocalDate } from '@/components/demo/LocalDateTime'
+import { concatAudioCached } from '@/server/concatAudioCached'
 import { getPodcast, getPodcasts } from '@/server/podcasts'
 import { textToSpeech } from '@/server/textToSpeech'
 import { fetchTeampilotData } from '@teampilot/sdk'
@@ -53,29 +54,34 @@ export default async function Page({ params }: PageProps) {
     }),
   )
 
-  // await concatMp3({
-  //   inputFiles: answersWithAudio.map((a) => a.audio.filePath),
-  //   outputFile: `${item.id}-all.mp3`,
-  // })
+  const concatResult = await concatAudioCached({
+    inputFiles: answersWithAudio.map((a) => a.audio.filePath),
+    outputFile: `${item.id}`,
+  })
 
   return (
     <>
-      <article className="flex flex-col">
-        <h1 className="mt-8 text-3xl">{item.title}</h1>
-        <div className="mb-4">
-          <LocalDate datetime={item.date} />
+      <article className="flex flex-col gap-4">
+        <div>
+          <h1 className="text-3xl">{item.title}</h1>
+          <div className="">
+            <LocalDate datetime={item.date} />
+          </div>
         </div>
         <p>
           <strong>{item.roughPlan}</strong>
         </p>
-        {answersWithAudio.map((a, idx) => (
+        <div>
+          <audio controls src={concatResult.url} />
+        </div>
+        {/* {answersWithAudio.map((a, idx) => (
           <div key={idx} className="mt-4">
             <h2>{a.name}</h2>
             <h3>{a.role}</h3>
             <audio controls src={a.audio.url} />
             <p>{a.message}</p>
           </div>
-        ))}
+        ))} */}
       </article>
     </>
   )
