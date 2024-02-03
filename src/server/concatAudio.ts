@@ -1,12 +1,6 @@
 import Transloadit from 'transloadit'
 
-export async function concatMp3({
-  inputFiles,
-  outputFile,
-}: {
-  inputFiles: string[]
-  outputFile: string
-}) {
+export async function concatAudio({ inputFiles }: { inputFiles: string[] }) {
   const transloadit = new Transloadit({
     authKey: process.env.TRANSLOADIT_AUTH_KEY!,
     authSecret: process.env.TRANSLOADIT_AUTH_SECRET!,

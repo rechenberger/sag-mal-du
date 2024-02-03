@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { concatMp3 } from './concatMp3'
+import { concatAudio } from './concatAudio'
 
 export async function concatAudioCached({
   inputFiles,
@@ -16,9 +16,8 @@ export async function concatAudioCached({
     return { url, filePath }
   }
 
-  const result = await concatMp3({
+  const result = await concatAudio({
     inputFiles,
-    outputFile,
   })
 
   // Download the file
