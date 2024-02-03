@@ -71,6 +71,15 @@ export const podcasts: PodcastInput[] = [
     hosts,
     roughPlan: `Eines der umstrittensten Themen seit... Warum hassen oder lieben es so viele? Tristan wird sich sehr dafür aussprechen das in einer liberalen Gesellschaft jeder mal schön essen kann was er will. Gegen Ende wird Tristan sagen: Jetzt hab ich sogar gehört Ananas auf Pizza soll Krebs verursachen. Die Ananas Gegener kämpfen ja wirklich mit harten Bandagen. Lena wird alles wie immer aufklären. Am Ende kommt wie immer das heitere Fazit und Outro von Tristan.`,
   },
+  {
+    id: 'apfelsaft',
+    episodeNumber: 4,
+    language: 'de',
+    title: 'Apfelsaft: Der Beste Saft? Wer kann ihm das Wasser reichen?',
+    date: '2024-02-03',
+    hosts,
+    roughPlan: `Tristan startet die heutige Episode mit dem gewagten Statement: Apfelsaft ist der beste Saft. Die folge dreht sich dann munter um die Themen: Beliebteste Säfte der Welt, Herstellung von Saft (Einfach nur auspressen oder gibt es auch komplizierten Saft?), Zählt Wein als Saft?, Hat jemals jemand Tomatensaft außerhalb eines Flugzeuges getrunken? Die Folge endet mit einem heiterem Fazit und Outro von Tristan und Lena.`,
+  },
 ]
 
 export const getPodcastInputs = async () => {
