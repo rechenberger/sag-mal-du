@@ -17,11 +17,11 @@ export default async function Page() {
     <>
       <h1>Podcasts</h1>
       <div className="grid grid-cols-1 gap-4">
-        {podcasts.map((item, idx) => {
+        {podcasts.map((podcast, idx) => {
           const isBig = idx === 0
           return (
-            <Fragment key={item.id}>
-              <Link href={`/podcasts/${item.id}`}>
+            <Fragment key={podcast.id}>
+              <Link href={`/podcasts/${podcast.id}`}>
                 <Card
                   className={cn(
                     'overflow-hidden',
@@ -38,14 +38,14 @@ export default async function Page() {
                   ></div> */}
                   <div>
                     <CardHeader>
-                      <CardTitle>{item.title}</CardTitle>
+                      <CardTitle>{podcast.title}</CardTitle>
                       <CardDescription>
-                        <LocalDate datetime={item.date} />
+                        <LocalDate datetime={podcast.date} />
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <p>
-                        <strong>{item.roughPlan}</strong>
+                        <strong>{podcast.roughPlan}</strong>
                       </p>
                       {/* <p className="mt-4 whitespace-pre-wrap">{item.content}</p> */}
                     </CardContent>
