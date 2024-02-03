@@ -38,11 +38,20 @@ export default async function Page({ params }: PageProps) {
     ),
   })
 
-  const audio = await textToSpeech({
-    text: item.title,
-    voiceId: process.env.ELEVENLABS_VOICE_ID_MALE!,
-    path: `${item.id}-title`,
-  })
+  const answersWithAudio = await Promise.all(
+    answer.map(async (a, idx) => {
+      const host = item.hosts.find((h) => h.name === a.name)
+      const audio = await textToSpeech({
+        text: a.message,
+        voiceId:
+          host?.voice === 'female'
+            ? process.env.ELEVENLABS_VOICE_ID_FEMALE!
+            : process.env.ELEVENLABS_VOICE_ID_MALE!,
+        path: `${item.id}-part${idx}`,
+      })
+      return { ...a, audio }
+    }),
+  )
 
   return (
     <>
@@ -54,10 +63,14 @@ export default async function Page({ params }: PageProps) {
         <p>
           <strong>{item.roughPlan}</strong>
         </p>
-        <pre className="mt-4 whitespace-pre-wrap">
-          {JSON.stringify(answer, null, 2)}
-        </pre>
-        <audio controls src={audio.url} />
+        {answersWithAudio.map((a, idx) => (
+          <div key={idx} className="mt-4">
+            <h2>{a.name}</h2>
+            <h3>{a.role}</h3>
+            <audio controls src={a.audio.url} />
+            <p>{a.message}</p>
+          </div>
+        ))}
       </article>
     </>
   )
