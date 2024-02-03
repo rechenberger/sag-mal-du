@@ -1,5 +1,6 @@
 export type PodcastInput = {
   id: string
+  episodeNumber: number
   title: string
   language: 'de' | 'en'
   date: string
@@ -32,6 +33,7 @@ const hosts: PodcastInput['hosts'] = [
 export const podcasts: PodcastInput[] = [
   {
     id: 'strom',
+    episodeNumber: 1,
     language: 'de',
     title: 'Wie funktioniert eigentlich Strom?',
     date: '2024-02-03',
@@ -41,6 +43,7 @@ export const podcasts: PodcastInput[] = [
   },
   {
     id: 'islam-bibel',
+    episodeNumber: 2,
     language: 'de',
     title: 'Islam und die Bibel: Eine Reise durch Glauben und Geschichte',
     date: '2024-02-03',

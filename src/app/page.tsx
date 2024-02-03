@@ -47,7 +47,9 @@ export default async function Page() {
                   )}
                   <div>
                     <CardHeader>
-                      <CardDescription>Episode {idx + 1}</CardDescription>
+                      <CardDescription>
+                        Episode {podcast.episodeNumber}
+                      </CardDescription>
                       <CardTitle>{podcast.title}</CardTitle>
                       <CardDescription>
                         <LocalDate datetime={podcast.date} />

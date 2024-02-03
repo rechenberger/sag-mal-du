@@ -26,7 +26,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <article className="flex flex-col gap-4">
-        <div className="flex flex-col md:flex-row gap-4 items-start">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
           {podcast.imageUrl && (
             <div className={cn('aspect-square relative w-full md:h-64')}>
               <Image
@@ -40,8 +40,13 @@ export default async function Page({ params }: PageProps) {
           )}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl">{podcast.title}</h1>
-              <div className="">
+              <div className="text-muted-foreground">
+                Episode {podcast.episodeNumber}
+              </div>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                {podcast.title}
+              </h1>
+              <div className="text-muted-foreground">
                 <LocalDate datetime={podcast.date} />
               </div>
             </div>
