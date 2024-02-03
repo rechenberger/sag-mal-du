@@ -1,8 +1,10 @@
 import { LocalDate } from '@/components/demo/LocalDateTime'
 import { cn } from '@/lib/utils'
 import { getPodcast, getPodcasts } from '@/server/podcasts'
+import { ArrowLeft } from 'lucide-react'
 import { Metadata, ResolvingMetadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Fragment } from 'react'
 
@@ -31,6 +33,13 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <>
+      <Link
+        href="/"
+        className="flex flex-row items-center gap-2 px-2 py-1 rounded-md hover:bg-muted self-start -mb-4"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        <span>All Episodes</span>
+      </Link>
       <article className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {podcast.imageUrl && (
