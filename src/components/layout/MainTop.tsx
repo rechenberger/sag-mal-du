@@ -2,7 +2,6 @@ import { DarkModeToggle } from '@/components/layout/DarkModeToggle'
 import { Button } from '@/components/ui/button'
 import { Github } from 'lucide-react'
 import Link from 'next/link'
-import { MainTopNav } from './MainTopNav'
 
 export const MainTop = () => {
   return (
@@ -15,9 +14,9 @@ export const MainTop = () => {
             </strong>
           </div>
         </Link>
-        <div className="hidden flex-1 xl:flex">
+        {/* <div className="hidden flex-1 xl:flex">
           <MainTopNav />
-        </div>
+        </div> */}
         <div className="flex flex-row">
           <Link
             href="https://github.com/SODEFA-GmbH-Co-KG/teampilot-starter"
@@ -30,9 +29,9 @@ export const MainTop = () => {
           <DarkModeToggle />
         </div>
       </div>
-      <div className="container lg:max-w-[1024px] xl:max-w-[1024px] 2xl:max-w-[1024px] flex pb-6 xl:hidden">
+      {/* <div className="container lg:max-w-[1024px] xl:max-w-[1024px] 2xl:max-w-[1024px] flex pb-6 xl:hidden">
         <MainTopNav />
-      </div>
+      </div> */}
     </>
   )
 }
