@@ -1,6 +1,8 @@
 import { LocalDate } from '@/components/demo/LocalDateTime'
+import { cn } from '@/lib/utils'
 import { getPodcast, getPodcasts } from '@/server/podcasts'
 import { Metadata, ResolvingMetadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Fragment } from 'react'
 
@@ -24,17 +26,32 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <article className="flex flex-col gap-4">
-        <div>
-          <h1 className="text-3xl">{podcast.title}</h1>
-          <div className="">
-            <LocalDate datetime={podcast.date} />
+        <div className="flex flex-col md:flex-row gap-4 items-start">
+          {podcast.imageUrl && (
+            <div className={cn('aspect-square relative w-full md:h-64')}>
+              <Image
+                src={podcast.imageUrl}
+                alt={podcast.title}
+                unoptimized
+                fill
+                // className="max-md:h-20 max-md:w-20"
+              />
+            </div>
+          )}
+          <div className="flex flex-col gap-4">
+            <div>
+              <h1 className="text-3xl">{podcast.title}</h1>
+              <div className="">
+                <LocalDate datetime={podcast.date} />
+              </div>
+            </div>
+            <p className="text-sm line-clamp-5">
+              <>{podcast.description}</>
+            </p>
+            <div>
+              <audio controls src={podcast.audio.url} />
+            </div>
           </div>
-        </div>
-        <p>
-          <strong>{podcast.description}</strong>
-        </p>
-        <div>
-          <audio controls src={podcast.audio.url} />
         </div>
         <hr className="my-8" />
         <h2 className="text-xl self-center">Transcript</h2>

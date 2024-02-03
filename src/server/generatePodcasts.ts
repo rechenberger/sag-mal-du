@@ -1,5 +1,6 @@
 import { generatePodcastAudio } from './generatePodcastAudio'
 import { generatePodcastDescription } from './generatePodcastDescription'
+import { generatePodcastImage } from './generatePodcastImage'
 import { generatePodcastScript } from './generatePodcastScript'
 import { getPodcastInputs } from './podcastInputs'
 
@@ -18,5 +19,8 @@ export const generatePodcasts = async () => {
       generatePodcastAudio({ podcast }),
     ),
   )
-  return podcastsWithAudio
+  const podcastsWithImage = await Promise.all(
+    podcastsWithAudio.map((podcast) => generatePodcastImage({ podcast })),
+  )
+  return podcastsWithImage
 }

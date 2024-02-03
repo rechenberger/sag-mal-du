@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { getPodcasts } from '@/server/podcasts'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment } from 'react'
 
@@ -17,7 +18,7 @@ export default async function Page() {
     <>
       <div className="grid grid-cols-1 gap-4">
         {podcasts.map((podcast, idx) => {
-          const isBig = idx === 0
+          const isBig = false
           return (
             <Fragment key={podcast.id}>
               <Link href={`/podcasts/${podcast.id}`}>
@@ -28,25 +29,34 @@ export default async function Page() {
                     !isBig && 'lg:flex-row',
                   )}
                 >
-                  {/* <div
-                    className={cn(
-                      'aspect-video relative',
-                      !isBig && 'lg:h-60',
-                      'bg-gray-500',
-                    )}
-                  ></div> */}
+                  {podcast.imageUrl && (
+                    <div
+                      className={cn(
+                        'aspect-square relative',
+                        !isBig && 'lg:h-60',
+                        'bg-gray-500',
+                      )}
+                    >
+                      <Image
+                        src={podcast.imageUrl}
+                        alt={podcast.title}
+                        unoptimized
+                        fill
+                      />
+                    </div>
+                  )}
                   <div>
                     <CardHeader>
+                      <CardDescription>Episode {idx + 1}</CardDescription>
                       <CardTitle>{podcast.title}</CardTitle>
                       <CardDescription>
                         <LocalDate datetime={podcast.date} />
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p>
+                      <p className="text-xs line-clamp-3">
                         <strong>{podcast.description}</strong>
                       </p>
-                      {/* <p className="mt-4 whitespace-pre-wrap">{item.content}</p> */}
                     </CardContent>
                   </div>
                 </Card>
