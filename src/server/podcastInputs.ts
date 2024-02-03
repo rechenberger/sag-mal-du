@@ -39,6 +39,26 @@ export const podcasts: PodcastInput[] = [
     roughPlan:
       'In dieser Folge wollen wir herausfinden, wie Strom eigentlich funktioniert. Wir sprechen über die Geschichte des Stroms, wie er erzeugt wird und wie er zu uns nach Hause kommt. Tristan wird am Anfang sowas sagen wie: Hi Lena, sag mal wie funktioniert eigentlich Strom? Ich hab da so Metaphern von meinem alten Physiklehrer im Kopf mit Gartenschläuchen und so. Wie war das noch mal? Später wird Tristan Fragen: Wie kommt man eigentlich auf die Idee Strom zu erzeugen? Ist jemand mit Socken über den Teppich gerutscht, hat einen gewischt bekommen und dann ging im ein Licht auf?',
   },
+  {
+    id: 'islam-bibel',
+    language: 'de',
+    title: 'Islam und die Bibel: Eine Reise durch Glauben und Geschichte',
+    date: '2024-02-03',
+    hosts,
+    roughPlan: `
+    Tristan: Ich hab gehört das Mohammed die Bibel uminterpretiert hat. Stimmt das?
+    Lena: 2 Aspekte: Literarisch und Theologisch. Theologisch: Offenbarung
+    Tristan: Und wie erklärt sich theologisch der Widerspruch, dass in der Bibel das eine steht und im Koran das andere?
+    Lena: ...
+    Tristan: Was sind denn so die Patchnotes / das Update von der Bibel zum Koran?
+    Lena: ...
+    Tristan: Wie wird denn die Kreuzigung Jesu im Koran interpretiert?
+    Lena: ...
+    Tristan: Ah also wird garnicht angezweifelt was passiert ist? Die historischen Fakten werden aus der Bibel übernommen aber nur erweitert oder korrigiert? Passiert das häufiger?
+    Lena: ...
+    Tristan: Super danke lena, verabschiedung...
+    `,
+  },
 ]
 
 export const getPodcastInputs = async () => {
