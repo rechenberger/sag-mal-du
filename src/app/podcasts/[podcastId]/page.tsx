@@ -47,11 +47,16 @@ export default async function Page({ params }: PageProps) {
           host?.voice === 'female'
             ? process.env.ELEVENLABS_VOICE_ID_FEMALE!
             : process.env.ELEVENLABS_VOICE_ID_MALE!,
-        path: `${item.id}-part${idx}`,
+        path: `${item.id}-part${idx.toString().padStart(3, '0')}`,
       })
       return { ...a, audio }
     }),
   )
+
+  // await concatMp3({
+  //   inputFiles: answersWithAudio.map((a) => a.audio.filePath),
+  //   outputFile: `${item.id}-all.mp3`,
+  // })
 
   return (
     <>

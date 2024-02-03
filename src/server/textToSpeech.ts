@@ -15,7 +15,7 @@ export const textToSpeech = async ({
   const url = `/${relativePath}`
 
   if (fs.existsSync(filePath)) {
-    return { url }
+    return { url, filePath }
   }
 
   const { blob } = await textToSpeechElevenLabs({
@@ -27,5 +27,5 @@ export const textToSpeech = async ({
   const bufferArray = new Uint8Array(buffer)
   fs.writeFileSync(filePath, bufferArray)
 
-  return { url }
+  return { url, filePath }
 }
