@@ -1,5 +1,6 @@
 import { LocalDate } from '@/components/demo/LocalDateTime'
 import { getPodcast, getPodcasts } from '@/server/podcasts'
+import { textToSpeech } from '@/server/textToSpeech'
 import { fetchTeampilotData } from '@teampilot/sdk'
 import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -37,6 +38,12 @@ export default async function Page({ params }: PageProps) {
     ),
   })
 
+  const audio = await textToSpeech({
+    text: item.title,
+    voiceId: process.env.ELEVENLABS_VOICE_ID_MALE!,
+    path: `${item.id}-title`,
+  })
+
   return (
     <>
       <article className="flex flex-col">
@@ -50,6 +57,7 @@ export default async function Page({ params }: PageProps) {
         <pre className="mt-4 whitespace-pre-wrap">
           {JSON.stringify(answer, null, 2)}
         </pre>
+        <audio controls src={audio.url} />
       </article>
     </>
   )
