@@ -45,7 +45,7 @@ export default async function Page() {
                     </CardHeader>
                     <CardContent>
                       <p>
-                        <strong>{podcast.roughPlan}</strong>
+                        <strong>{podcast.description}</strong>
                       </p>
                       {/* <p className="mt-4 whitespace-pre-wrap">{item.content}</p> */}
                     </CardContent>

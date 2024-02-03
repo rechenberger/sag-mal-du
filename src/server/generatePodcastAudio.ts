@@ -1,11 +1,11 @@
 import { concatAudioCached } from './concatAudioCached'
-import { PodcastWithScript } from './generatePodcastScript'
+import { PodcastWithDescription } from './generatePodcastDescription'
 import { textToSpeech } from './textToSpeech'
 
 export const generatePodcastAudio = async ({
   podcast,
 }: {
-  podcast: PodcastWithScript
+  podcast: PodcastWithDescription
 }) => {
   const scriptWithAudio = await Promise.all(
     podcast.script.map(async (a, idx) => {

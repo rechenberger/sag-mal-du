@@ -30,7 +30,7 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
         <p>
-          <strong>{podcast.roughPlan}</strong>
+          <strong>{podcast.description}</strong>
         </p>
         <div>
           <audio controls src={podcast.audio.url} />
