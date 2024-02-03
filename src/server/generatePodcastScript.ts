@@ -1,4 +1,5 @@
 import { fetchTeampilotData } from '@teampilot/sdk'
+import { omit } from 'lodash-es'
 import { z } from 'zod'
 import { PodcastInput } from './podcastInputs'
 
@@ -9,7 +10,7 @@ export const generatePodcastScript = async ({
 }) => {
   const script = await fetchTeampilotData({
     message: `Write the script for the following Podcast: \n\`\`\`json\n${JSON.stringify(
-      podcast,
+      omit(podcast, ['episodeNumber']),
       null,
       2,
     )}\n\`\`\``,
