@@ -38,7 +38,6 @@ export default async function Page({ params }: PageProps) {
               <Image
                 src={podcast.imageUrl}
                 alt={podcast.title}
-                unoptimized
                 fill
                 // className="max-md:h-20 max-md:w-20"
               />

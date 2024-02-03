@@ -37,12 +37,7 @@ export default async function Page() {
                         'bg-gray-500',
                       )}
                     >
-                      <Image
-                        src={podcast.imageUrl}
-                        alt={podcast.title}
-                        unoptimized
-                        fill
-                      />
+                      <Image src={podcast.imageUrl} alt={podcast.title} fill />
                     </div>
                   )}
                   <div>
