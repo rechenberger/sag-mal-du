@@ -2,6 +2,7 @@ import { LocalDate } from '@/components/demo/LocalDateTime'
 import { getPodcast, getPodcasts } from '@/server/podcasts'
 import { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Fragment } from 'react'
 
 type PageProps = { params: { podcastId: string } }
 
@@ -35,14 +36,22 @@ export default async function Page({ params }: PageProps) {
         <div>
           <audio controls src={podcast.audio.url} />
         </div>
-        {/* {answersWithAudio.map((a, idx) => (
-          <div key={idx} className="mt-4">
-            <h2>{a.name}</h2>
-            <h3>{a.role}</h3>
-            <audio controls src={a.audio.url} />
-            <p>{a.message}</p>
-          </div>
-        ))} */}
+        <hr className="my-8" />
+        <h2 className="text-xl self-center">Transcript</h2>
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-8 text-sm">
+          {podcast.script.map((a, idx) => (
+            <Fragment key={idx}>
+              <div>
+                <strong>{a.name}</strong>
+                <div className="capitalize text-muted-foreground">{a.role}</div>
+              </div>
+              <div>
+                <p className="italic">{a.message}</p>
+                {/* <audio controls src={a.audio.url} /> */}
+              </div>
+            </Fragment>
+          ))}
+        </div>
       </article>
     </>
   )
