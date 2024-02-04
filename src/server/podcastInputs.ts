@@ -80,6 +80,22 @@ export const podcasts: PodcastInput[] = [
     hosts,
     roughPlan: `Tristan startet die heutige Episode mit dem gewagten Statement: Apfelsaft ist der beste Saft. Die folge dreht sich dann munter um die Themen: Beliebteste Säfte der Welt, Herstellung von Saft (Einfach nur auspressen oder gibt es auch komplizierten Saft?), Zählt Wein als Saft?, Hat jemals jemand Tomatensaft außerhalb eines Flugzeuges getrunken? Die Folge endet mit einem heiterem Fazit und Outro von Tristan und Lena.`,
   },
+  {
+    id: 'winterschlaf',
+    episodeNumber: 5,
+    language: 'de',
+    title: 'Winterschlaf: Wie cool kann man sein?',
+    date: '2024-02-04',
+    hosts,
+    roughPlan: `Tristan wird die Zuhörer fröhlich zur heutigen Ausgabe begrüßen nach und nach folgende Fragen stellen:
+
+    1) Wie funktioniert Winterschlaf? Das ist ja schon ziemlich abgefahren.
+    2) Ich hab mal gehört das Bären-Mütter ihren Nachwuchs im Winterschlaf gebären. Stimmt das?
+    3) Das klingt alles mega clever und praktisch. Ist es denkbar das wir Menschen das uns auch beibringen?
+    4) Der Kölner Karneval steht nächste Woche an und da könnte ich mir gut vorstellen durchzuknacken und wohl erfrischt wieder aufzuwachen wenn das Chaos for meiner Haustür vorbei ist.
+    
+    Lena wird alles wie immer aufklären und diesmal sehr tief in die technischen und biologischen Erklärungen eintauchen. Am Ende kommt wie immer das heitere Fazit und Outro von Tristan und Lena.`,
+  },
 ]
 
 export const getPodcastInputs = async () => {
